@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-#windows
+#on ubuntu for windows
 import matplotlib
 matplotlib.use('Agg')
 
@@ -25,15 +25,15 @@ class GradientDescentLinearRegression:
 np.random.seed(42)
 X = np.array(sorted(list(range(5))*20)) + np.random.normal(size=100, scale=0.5)
 y = np.array(sorted(list(range(5))*20)) + np.random.normal(size=100, scale=0.25)
-print (X)
 
-clf = GradientDescentLinearRegression()
-clf.fit(X, y)
+if __name__ == "__main__":
+    clf = GradientDescentLinearRegression()
+    clf.fit(X, y)
 
-plt.style.use('fivethirtyeight')
+    plt.style.use('fivethirtyeight')
 
-plt.scatter(X, y, color='black')
-plt.plot(X, clf.predict(X))
-plt.gca().set_title("Gradient Descent Linear Regressor")
-#windows
-plt.savefig("matplotlib.png")
+    plt.scatter(X, y, color='black')
+    plt.plot(X, clf.predict(X))
+    plt.gca().set_title("Gradient Descent Linear Regressor")
+    #on ubuntu for windows
+    plt.savefig("matplotlib.png")
