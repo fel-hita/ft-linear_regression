@@ -26,10 +26,10 @@ class GradientDescentLinearRegression:
             m_gradient = -2 * np.sum(X*(y - (m*X + b))) / n
             b = b + (self.learning_rate * b_gradient)
             m = m - (self.learning_rate * m_gradient)
-        self.m, self.b = m, b
+        self.theta1, self.theta0 = m, b
         
-    def predict(self, X):
-        return self.m*X + self.b
+    def estimatePrice(self, X):
+        return self.theta1 * X + self.theta0
 
 if __name__ == '__main__':
     
@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
     plt.style.use('classic')
 
-    y = clf.predict(X)
+    y = clf.estimatePrice(X)
 
     X = destandardize(X, data[:,1])
     y = destandardize(y, data[:,0])
