@@ -30,7 +30,7 @@ class GradientDescentLinearRegression:
 
     def save_theta(self, x, y):
 	    self.theta1 = (y[0] - y[1]) / (x[0] - x[1])
-	    self.theta0 = self.theta1 * x[0] * -1 + y[0]
+	    self.theta0 = y[0] - self.theta1 * x[0]
 	    theta = [self.theta0, self.theta1]
 	    np.savetxt("theta.csv", theta, delimiter = ',')
         
