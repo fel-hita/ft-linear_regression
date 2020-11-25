@@ -1,4 +1,5 @@
 import numpy as np
+import sys
 
 def estimate_price(theta_0, theta_1, x):
 	return theta_0 + theta_1 * x
@@ -9,16 +10,13 @@ def main():
 		print('Provide the mileage: ')
 		try:
 			mileage = input()
-		except:
-			sys.exit('Error input.')
-		try:
 			mileage = int(mileage)
 			if mileage >= 0:
 				break
 			else:
 				print('Input should be a positive integer.')
-		except ValueError:
-			print('Invalid input.')
+		except:
+			sys.exit('Error input.')
 
 	print(estimate_price(theta[0], theta[1], mileage))
 
