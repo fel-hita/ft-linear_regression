@@ -10,13 +10,13 @@ def main():
 		try:
 			mileage = input()
 		except:
-			sys.exit('Error on input. Exit...')
+			sys.exit('Error input.')
 		try:
 			mileage = int(mileage)
 			if mileage >= 0:
 				break
 			else:
-				print('Invalid input.')
+				print('Input should be a positive integer.')
 		except ValueError:
 			print('Invalid input.')
 
