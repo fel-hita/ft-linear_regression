@@ -33,13 +33,12 @@ class GradientDescentLinearRegression:
 
 if __name__ == '__main__':
     
-    data = genfromtxt('data.csv',delimiter=',')
-    data = np.delete(data, 0, 0)
+    data = np.loadtxt("data.csv", dtype = np.longdouble, delimiter = ',', skiprows = 1)
 
-    plt.scatter(data[:,1], data[:,0], color='black')
+    plt.scatter(data[:,0], data[:,1], color='black')
 
-    X = standardize(data[:,1])
-    y = standardize(data[:,0])
+    X = standardize(data[:,0])
+    y = standardize(data[:,1])
 
     clf = GradientDescentLinearRegression()
     clf.fit(X, y)
@@ -48,10 +47,12 @@ if __name__ == '__main__':
 
     y = clf.estimatePrice(X)
 
-    X = destandardize(X, data[:,1])
-    y = destandardize(y, data[:,0])
-    
+    X = destandardize(X, data[:,0])
+    y = destandardize(y, data[:,1])
+    # windows
     plt.plot(X, y)
+    # mac
+    # plt.axeline((X[0],y[0]),(X[1],y[1]))
     plt.gca().set_title("Gradient Descent Linear Regressor")
     # windows
     plt.savefig("matplotlib.png")
